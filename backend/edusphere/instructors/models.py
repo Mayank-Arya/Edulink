@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Instructor(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -8,8 +7,10 @@ class Instructor(models.Model):
     mobile_number = models.CharField(max_length=15)
     address = models.TextField()
     gender = models.CharField(max_length=10)
-
-    # Additional fields or methods can be added as needed
+    password = models.CharField(max_length=128)  # Add a password field
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        app_label = 'instructors'
